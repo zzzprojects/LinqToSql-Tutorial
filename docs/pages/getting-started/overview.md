@@ -2,47 +2,27 @@
 
 ## Introduction
 
-Entity Framework Core is a lightweight, extensible and cross-platform version of Microsoft's object-relational mapper (ORM), Entity Framework is the official data access platform for Microsoft. 
+LINQ to SQL is a component of .NET Framework that provides a run-time infrastructure for managing relational data as objects. In LINQ to SQL, you can access SQL databases just like accessing an in-memory collection by using the LINQ technology.
 
- - As .NET evolves towards a lighter weight cross-platform environment, Entity Framework is making the same transition. 
- - In other words, this was not simply an update from the latest Entity Framework (EF6), but it is a different kind of Entity Framework. 
- - It includes a set of .NET APIs for performing data access in your application. 
+ - The data model of a relational database is mapped to an object model expressed in the programming language of the developer. 
+ - When the application runs, LINQ to SQL translates the LINQ queries into SQL the and sends them to the database for execution. 
+ - When the database returns the results, LINQ to SQL translates them back to objects that you can work with in your own programming language.
 
-## History
+## What is LINQ
 
- - EF team has made some significant changes over Entity Framework 6 and called it EF7, but later they rename it to EF Core.
- - EF Core was first released in late June of 2016 after over 2 years of effort, this first version was followed by a great amount of change with EF Core 2, which was released a year later along with .NET Core and ASP.NET Core. 
- - EF Core 2 is seen by many as the first solid version, although EF Core 1 is still supported.
+LINQ (Language Integrated Query) is a structured query syntax in .NET used to save and retrieve data from different sources. 
 
-```csharp
-public class Customer
-{
-    public int CustomerId { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public string Address { get; set; }
-    public virtual List<Invoice> Invoices { get; set; }
-}
+ - It provides a single querying interface for different types of data sources such as Object Collection, SQL server database, XML, web service etc. 
+ - LINQ gives us strongly typed compile time checks on queries that can execute against in memory data, relational data, and XML data.
 
-public class Invoice
-{
-    public int Id { get; set; }
-    public DateTime Date { get; set; }
+## LINQ to SQL Capabilities
 
-    public int CustomerId { get; set; }
+LINQ to SQL has all the capabilities you would expect as a SQL developer. You can query, insert, update, and delete data from database tables using LINQ to SQL.
 
-    [ForeignKey("CustomerId")]
-    public virtual Customer Customer { get; set; }
-    public virtual List<InvoiceItem> Items { get; set; }
-}
+## Limitations
 
-public class InvoiceItem
-{
-    public int InvoiceItemId { get; set; }
-    public int InvoiceId { get; set; }
-    public string Code { get; set; }
+There are few limitations when you use LINQ to SQL;
 
-    [ForeignKey("InvoiceId")]
-    public virtual Invoice Invoice { get; set; }
-}
-```
+ - It can only be used with SQL Server as backend.
+ - It requires at least .NET 3.5
+ - Tables are mapped strictly on a 1:1 basis (one table = one class)
