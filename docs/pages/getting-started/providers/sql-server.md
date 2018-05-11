@@ -6,7 +6,9 @@ In LINQ to SQL, you can access SQL Server databases just like accessing an in-me
 
 ```csharp
 
-using (var db = new CustomerDbDataContext(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=CustomerContextDB;"))
+string connectionString = "your connection string";
+
+using (var db = new CustomerDbDataContext(connectionString))
 {
     var customers = db.Customers.ToList();
 
