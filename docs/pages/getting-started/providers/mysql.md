@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In LINQ to SQL, you easily interact with regular data structures, XML and SQL Server, but if you want to talk to MySQL, you will need a third-party package to handle the interaction.
+In LINQ to SQL, you can easily interact with regular data structures, XML and SQL Server, but if you want to talk to MySQL, you will need a third-party package to handle the interaction.
 
 ### DbLinq
 
@@ -19,13 +19,14 @@ In LINQ to SQL, you easily interact with regular data structures, XML and SQL Se
 ```charp
 DbMetal.exe -provider=MySql -database:customerdb -server:localhost -user:root -password: -namespace:LinqToMySql -code:Customer.cs -sprocs
 ```
- 4. Now run this batch file, and you will see a new Customer.cs file is generated in the same folder.
+ 4. Make sure to enter your all your information correctly including user id and password.
+ 5. Now run this batch file, and you will see a new Customer.cs file is generated in the same folder which contains model and a data context classes.
  5. Include that file in your project.
  6. Make sure to add DbLinq.dll and Dblinq.MySql.dll from the source code binaries.
  7. Now you can access MySql database using LINQ.
 
 ```csharp
-DbLinq is THE LINQ provider that allows to use common databases with an API close to Linq to SQL.using (MySqlConnection connection = new MySqlConnection("server=localhost;user id=root;persistsecurityinfo=True;database=customerdb;SslMode=none"))
+using (MySqlConnection connection = new MySqlConnection("server=localhost;user id=root;persistsecurityinfo=True;database=customerdb;SslMode=none"))
 {
     var db = new CustomerDb(connection);
     var customers = db.Customers;
