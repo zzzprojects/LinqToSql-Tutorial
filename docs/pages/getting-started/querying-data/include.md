@@ -1,4 +1,4 @@
-# Include
+# Load Related Data
 
 ## Lazy Loading
 
@@ -39,8 +39,6 @@ Now also look at the value of the parameter of CustomerID, for the first custome
 ## Eager Loading
 
 In LINQ to SQL, you can use eager loading where a query for one type of entity also loads related entities as a part of the query. You can get eager load data by using Using `DataLoadOptions`.
-
-The following query joins Customers and Invoices table using the Join() method.
 
 ```charp
 using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=CustomerDB;"))
