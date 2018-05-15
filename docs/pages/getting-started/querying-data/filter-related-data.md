@@ -14,8 +14,6 @@ using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Init
 {
     db.Log = Console.Out;
 
-    DateTime date = new DateTime(2018, 5, 15);
-
     var dataOptions = new DataLoadOptions();
     dataOptions.LoadWith<Customer>(c => c.Invoices);
     dataOptions.AssociateWith<Customer>(
