@@ -1,4 +1,4 @@
-# Include
+# Load Related Data
 
 ## Lazy Loading
 
@@ -29,7 +29,8 @@ using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Init
 
 The `db.Log = Console.Out;` will print all the generated SQL queries on a screen to see what is happing.
 
-<img src="{{ site.github.url }}/images/include1.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include1.png">
+
 
 You can see that the first query will get all the customers and then for every iteration, a new query is executed to fetch invoice data from the database.
 
@@ -38,8 +39,6 @@ Now also look at the value of the parameter of CustomerID, for the first custome
 ## Eager Loading
 
 In LINQ to SQL, you can use eager loading where a query for one type of entity also loads related entities as a part of the query. You can get eager load data by using Using `DataLoadOptions`.
-
-The following query joins Customers and Invoices table using the Join() method.
 
 ```charp
 using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=CustomerDB;"))
@@ -64,6 +63,6 @@ using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Init
 ```
 In this example, we are telling the context that along Customer entites, load the related Invoices as well.
 
-<img src="{{ site.github.url }}/images/include2.png">
+<img src="https://raw.githubusercontent.com/zzzprojects/LinqToSql-Tutorial/master/docs/images/include2.png">
 
 Now you can see that we have only one query and it will load the Customers and the related Invoices data.
