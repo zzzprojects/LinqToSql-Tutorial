@@ -9,7 +9,7 @@ Now if you want to load limited related data or filtered related data, you can u
 
 In the following example, DataLoadOptions.AssociateWith(LambdaExpression) is used to filter invoices.
 
-```charp
+```csharp
 using (var db = new CustomerDataContext(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=CustomerDB;"))
 {
     db.Log = Console.Out;
